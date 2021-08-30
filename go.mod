@@ -1,4 +1,4 @@
-module github.com/YKMeIz/send/server
+module github.com/YKMeIz/send
 
 go 1.17
 
