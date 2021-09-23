@@ -111,3 +111,29 @@ func GetFile(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write(b)
 }
+
+func GetFileWithoutTkn(w http.ResponseWriter, r *http.Request) {
+	id := strings.TrimPrefix(r.URL.Path, "/file/")
+
+	if b := tryFileWithoutTkn(id); b != nil {
+		w.WriteHeader(http.StatusOK)
+		w.Write(b)
+		return
+	}
+
+	http.ServeFile(w, r, "./dist/index.html")
+}
+
+func tryFileWithoutTkn(id string) []byte {
+	b, err := kvs.Get([]byte(id))
+	if b == nil || err != nil {
+		return nil
+	}
+
+	f, err := ioutil.ReadFile(uploadPath + string(b))
+	if err != nil {
+		return nil
+	}
+
+	return f
+}
