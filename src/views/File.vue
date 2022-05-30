@@ -69,12 +69,13 @@ export default {
 
 <style scoped>
 .el-form {
-  width: 500px;
+  max-width: 31.250em;
   text-align: left;
 }
 .el-input {
-  width: 220px;
+  max-width: 13.750em;
 }
+
 .form {
   margin: 10em 0 5em 0;
 }

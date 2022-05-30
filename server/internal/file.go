@@ -16,7 +16,7 @@ const (
 )
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm(32 << 20)
+	r.ParseMultipartForm(4096 << 20)
 	f, handler, err := r.FormFile("file")
 	if err != nil {
 		println(w, http.StatusBadRequest, err)

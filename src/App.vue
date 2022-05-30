@@ -31,4 +31,5 @@ export default {
   margin: 10em 0 5em 0;
   color: #909399;
 }
+
 </style>

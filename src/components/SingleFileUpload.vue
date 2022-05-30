@@ -3,7 +3,10 @@
     <el-progress type="circle" :percentage="progress" :indeterminate="true"
                  :color="colors" v-if="isSubmitted && progress !== 100"></el-progress>
     <form enctype="multipart/form-data" method="post" name="file" v-if="!isSubmitted">
-      <input type="file" name="file" required /><br>
+      <input style="display:none;" id="form-input" type="file" name="file" required />
+      <label for="form-input" class="upload-label">
+        Click here to upload file.
+      </label>
     </form>
     <div v-if="fileURL !== ''" class="ln">
       <el-popover
@@ -111,5 +114,12 @@ a {
 }
 .ln {
   margin-top: 5em;
+}
+.upload-label {
+  cursor: pointer;
+  font-size: 28px;
+  color: #8c939d;
+  text-align: center;
+
 }
 </style>

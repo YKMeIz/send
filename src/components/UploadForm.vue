@@ -22,9 +22,9 @@
       </el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="isSubmitted = true">Submit</el-button>
       </el-form-item>
     </el-form>
+    <el-button type="primary" @click="isSubmitted = true">Submit</el-button>
   </div>
 </template>
 
@@ -71,13 +71,19 @@ export default {
 
 <style scoped>
 .el-form {
-  width: 500px;
+  max-width: 31.250em;
   text-align: left;
 }
 .el-input {
-  width: 220px;
+  max-width: 13.750em;
 }
+
 .upload {
   margin: 10em 0 5em 0;
+}
+
+.el-button {
+  min-width: 13.750em;
+  max-width: 31.250em;
 }
 </style>
